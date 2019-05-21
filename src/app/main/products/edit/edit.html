@@ -1,0 +1,47 @@
+<div class="page-layout simple fullwidth">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg">
+        <span class="h2">{{vm.product.ItemName}} | {{vm.product.ItemCode}}</span><br>
+        <span>Disponibles: {{vm.product.Available}}</span>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content" md-background-bg>
+
+      <div ng-show="vm.isLoading" layout="row" layout-sm="column" layout-align="space-around">
+        <md-progress-circular class="md-accent" md-diameter="96" md-mode="indeterminate"></md-progress-circular>
+      </div>
+
+      <section class="product-editor" ng-show="!vm.isLoading">
+
+        <md-tabs md-dynamic-height>
+          <md-tab label="Configuración">
+            <ng-include src="'app/main/products/edit/edit-configuration.html'"></ng-include>
+          </md-tab>
+          <md-tab label="Contenido">
+            <ng-include src="'app/main/products/edit/edit-content.html'"></ng-include>
+          </md-tab>
+          <md-tab label="Caracteristicas">
+            <ng-include src="'app/main/products/edit/edit-features.html'"></ng-include>
+          </md-tab>
+          <md-tab label="Empaque y envio">
+            <ng-include src="'app/main/products/edit/edit-package.html'"></ng-include>
+          </md-tab>
+          <md-tab label="Multimedia">
+            <ng-include src="'app/main/products/edit/edit-gallery.html'"></ng-include>
+          </md-tab>
+          <!---
+          <md-tab label="Ofertas">
+            <ng-include src="'app/main/products/edit/edit-offers.html'"></ng-include>
+          </md-tab>
+          -->
+        </md-tabs>
+
+      </section>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

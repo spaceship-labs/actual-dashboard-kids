@@ -1,0 +1,59 @@
+<div id="login" class="flex-scrollable" layout="column" ms-scroll>
+    <div id="login-form-wrapper" layout="column" layout-align="center center">
+        <div id="login-form" class="md-whiteframe-8dp">
+
+            <div class="logo-wrapper">
+              <img src="assets/images/logo-actual-blanco.png" alt="">
+            </div>
+
+            <div class="title">Iniciar sesión</div>
+
+            <form name="loginForm" ng-show="!vm.isLoading" ng-submit="vm.signIn()" novalidate>
+                <md-input-container class="md-block" md-no-float>
+                    <input type="email" name="email" ng-model="vm.form.email" placeholder="Email"
+                           translate translate-attr-placeholder="LOGIN.EMAIL"
+                           ng-pattern="/^.+@.+\..+$/" required>
+                    <div ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched" role="alert" multiple>
+                        <div ng-message="required">
+                            <span>El e-mail es requerido</span>
+                        </div>
+                        <div ng-message="pattern">
+                            <span>E-mail invalido</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" md-no-float>
+                    <input type="password" name="password" ng-model="vm.form.password" placeholder="Contraseña"
+                           required>
+                    <div ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched" role="alert">
+                        <div ng-message="required">
+                            <span>Campo requerdio</span>
+                        </div>
+                    </div>
+                </md-input-container>
+
+                <div class="remember-forgot-password" layout="row" layout-xs="column"
+                     layout-align="space-between center">
+                    <!--<md-checkbox class="remember-me" ng-model="data.cb1" aria-label="Remember Me">
+                        <span translate="LOGIN.REMEMBER_ME">Remember Me</span>
+                    </md-checkbox>-->
+
+                    <a ui-sref="app.auth_forgot-password" class="forgot-password md-accent-color"
+                      >Olvide mi contraseña</a>
+                </div>
+
+                <md-button type="submit" class="md-raised md-accent" aria-label="LOG IN"
+                           ng-disabled="loginForm.$invalid || loginForm.$pristine"
+                           >
+                    INICIAR SESIÓN
+                </md-button>
+            </form>
+
+            <div ng-show="vm.isLoading" layout="row" layout-sm="column" layout-align="space-around">
+              <md-progress-circular class="md-accent" md-diameter="96" md-mode="indeterminate"></md-progress-circular>
+            </div>
+
+        </div>
+    </div>
+</div>

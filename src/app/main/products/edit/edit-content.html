@@ -1,0 +1,63 @@
+<section class="md-whiteframe-z1">
+  <md-toolbar class="demo-toolbar md-primary">
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+      <h3>CONTENIDO</h3>
+      <md-button ng-click="vm.updateContent(contentForm)" class="md-raised md-primary action-button">Guardar</md-button>
+    </div>
+  </md-toolbar>
+  <md-content class="md-padding">
+
+    <form name="contentForm" ng-submit="vm.updateContent(contentForm)" class="md-inline-form" novalidate>
+
+      <div class="input-element">
+        <label>Nombre*</label>
+        <div class="input-element-inner">
+          <input type="text" ng-model="vm.product.Name" name="Nombre" required placeholder="Nombre*" >
+        </div>
+        <p class="input-hint"><strong>SAP</strong>: {{vm.product.ItemName}}</p>
+        <div ng-messages="contentForm.Nombre.$error" ng-show="contentForm.Nombre.$touched"
+             role="alert">
+            <div ng-message="required">
+                <span>Este campo es requerido.</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="wyswyg-block">
+        <label for=""><strong>Descripción*</strong></label>
+        <textarea ui-tinymce="tinymceOptions"  ng-model="vm.product.Description"></textarea>
+      </div>
+
+      <div class="wyswyg-block">
+        <label for=""><strong>Caracteristicas principales</strong></label>
+        <textarea ui-tinymce="tinymceOptions"  ng-model="vm.product.MainFeatures"></textarea>
+      </div>
+
+      <div class="wyswyg-block">
+        <label for=""><strong>Restricciones</strong></label>
+        <textarea ui-tinymce="tinymceOptions" ng-model="vm.product.Restrictions"></textarea>
+      </div>
+
+      <div class="wyswyg-block">
+        <label for=""><strong>Conservacion</strong></label>
+        <textarea ui-tinymce="tinymceOptions" ng-model="vm.product.Conservation"></textarea>
+      </div>
+
+      <!--CHECKED-->
+      <div>
+        <h2><strong>Revisión</strong></h2>
+        <div>
+          <md-checkbox class="spaced-checkbox block-checkbox" ng-model="vm.product.CheckedDescription">Contenido revisado</md-checkbox>
+        </div>
+      </div>
+      <!--END CHECKED-->
+
+
+      <div layout="row" layout-align="end center">
+        <md-button ng-click="vm.updateContent(contentForm)" class="md-raised md-primary action-button">Guardar</md-button>
+      </div>
+
+    </form>
+
+  </md-content>
+</section>

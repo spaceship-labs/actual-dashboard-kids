@@ -1,0 +1,47 @@
+.select-element md-select.ng-invalid.ng-dirty,
+.input-element .input-element-inner input[type="text"].ng-invalid.ng-dirty,
+.input-element .input-element-inner input[type="email"].ng-invalid.ng-dirty,
+.input-element .input-element-inner input[type="number"].ng-invalid.ng-dirty,
+.input-element .input-element-inner input[type="password"].ng-invalid.ng-dirty,
+.input-element .input-element-inner textarea.ng-invalid.ng-dirty,
+section.invalid{
+  border:2px solid red;
+}
+md-icon svg {
+  fill: inherit!important;
+}
+md-icon.button-watch {
+  color: blue!important;
+}
+md-icon.button-add{
+  color: #34BA2C!important;
+}
+md-icon.button-remove{
+  color: #CE2329!important;
+}
+.select-element-md{
+  min-width:150px!important;
+  margin-top:-1px!important;
+  margin-bottom:0!important;
+}
+.options{
+  text-align:center;
+}
+.company-select{
+  margin-bottom:0!important;
+}
+#commissionsDialog, #commissionsDialog md-content{
+  background:#F5F5F5;
+}
+#commissionsDialog h1{
+  color:white;
+  background:#CE2329;
+  text-align:center;
+}
+
+#commissionsDialog table caption {
+  font-size:18px;
+  background:black;
+  color:white;
+  font-weight: bold;
+}

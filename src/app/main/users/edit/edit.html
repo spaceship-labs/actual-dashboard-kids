@@ -1,0 +1,383 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <!-- HEADER -->
+    <!--
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="title">Usuarios</div>
+        </div>
+    </div>
+    -->
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <div class="page-layout simple fullwidth">
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="demo-toolbar md-primary">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+              <h3>EDITAR USUARIO</h3>
+              <md-button type="submit" class="md-raised md-accent action-button" aria-label="Guardar"
+                 ng-click="vm.sendForm(basicForm)">
+                  Guardar
+              </md-button>
+            </div>
+          </md-toolbar>
+          <md-content class="md-padding">
+
+            <div ng-show="vm.isLoading" layout="row" layout-sm="column" layout-align="space-around">
+              <md-progress-circular class="md-accent" md-diameter="96" md-mode="indeterminate"></md-progress-circular>
+            </div>
+
+            <form ng-show="!vm.isLoading" name="basicForm" flex="80" class="md-inline-form" novalidate>
+
+              <section  layout="row" layout-wrap layout-align="space-between start">
+                <div class="input-element" flex="30" flex-sm="100" flex-xs="100">
+                  <label>Nombre*</label>
+                  <div class="input-element-inner">
+                    <input type="text" ng-model="vm.user.firstName" name="firstname" required placeholder="Nombre*">
+                  </div>
+                  <div ng-messages="basicForm.firstname.$error" ng-show="basicForm.firstname.$touched"
+                       role="alert">
+                      <div ng-message="required">
+                          <span>Este campo es requerido.</span>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="input-element" flex="30" flex-sm="100" flex-xs="100">
+                  <label>Apellidos*</label>
+                  <div class="input-element-inner">
+                    <input type="text" name="lastname" ng-model="vm.user.lastName" placeholder="Apellidos"
+                                 required>
+                  </div>
+                  <div ng-messages="basicForm.lastname.$error" ng-show="basicForm.lastname.$touched"
+                       role="alert">
+                      <div ng-message="required">
+                          <span>Este campo es requerido.</span>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="input-element" flex="30" flex-sm="100" flex-xs="100">
+                  <label>Email*</label>
+                  <div class="input-element-inner">
+                    <input type="email" name="email" ng-model="vm.user.email" placeholder="Email"
+                               translate
+                               ng-pattern="/^.+@.+\..+$/" required>
+                  </div>
+                  <div ng-messages="basicForm.email.$error" ng-show="basicForm.email.$touched" role="alert" multiple>
+                      <div ng-message="required">
+                          <span>Este campo es requerido</span>
+                      </div>
+                      <div ng-message="pattern">
+                          <span>E-mail invalido</span>
+                      </div>
+                  </div>
+                </div>
+              </section>
+
+              <section  layout="row" layout-wrap layout-align="space-between start">
+
+                <div flex="40" class="input-element">
+                  <label><strong>Teléfono fijo</strong></label>
+                  <div layout="row" layout-align="space-between center">
+                      <div flex="30" class="input-element-inner">
+                        <input
+                          type="text"
+                          ng-model="vm.user.dialCode"
+                          ng-pattern="'[0-9]{3}'"
+                          placeholder="Lada"
+                          >
+                      </div>
+                      <div flex="65" class="input-element-inner">
+                        <input type="text" placeholder="Número" ng-model="vm.user.phone" >
+                      </div>
+                  </div>
+                </div>
+
+
+                <div flex="40" class="input-element">
+                  <label><strong>Teléfono celular</strong></label>
+                  <div layout="row" layout-align="space-between center">
+                      <div flex="30" class="input-element-inner">
+                        <input type="text" ng-model="vm.user.mobileDialCode" placeholder="Lada" >
+                      </div>
+                      <div flex="65" class="input-element-inner">
+                        <input type="text" placeholder="Número" ng-model="vm.user.mobilePhone" >
+                      </div>
+                  </div>
+                </div>
+
+              </section>
+
+              <section layout="row" layout-wrap layout-align="start start">
+                <div class="input-element " flex="45" flex-sm="100" flex-xs="100">
+                  <p class="select-element-label"><label><strong>Rol*</strong></label></p>
+                  <md-input-container>
+                    <md-select class="select-element select-element-lg" ng-model="vm.user.role">
+                      <md-option ng-repeat="role in vm.roles" ng-value="role.id">
+                        {{role.name}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>
+
+                <div 
+                  ng-if="vm.sellers && vm.sellers.length > 0" 
+                  class="input-element" 
+                  flex="30" 
+                  flex-xs="100"
+                >
+                  <p class="select-element-label"><label><strong>Vendedor(SAP)</strong></label></p>
+                  <md-input-container>
+                    <md-select 
+                    class="select-element select-element-md" 
+                    ng-model="vm.user.Seller">
+                      <md-option
+                        ng-repeat="seller in vm.sellers  | orderBy:'SlpName'  track by $index"
+                        ng-value="seller.id" 
+                        ng-selected="seller.id == vm.user.Seller">
+                        <span>{{seller.SlpName}}</span>
+                        <span ng-if="seller.id">| {{seller.SlpCode}}</span>
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>
+              </section>
+
+              <!--ACTIVE-->
+              <div>
+                <div>
+                  <md-checkbox 
+                    class="block-checkbox" 
+                    ng-model="vm.user.active"><strong>Activo</strong></md-checkbox>
+                </div>
+              </div>
+              <!--END ACTIVE-->              
+
+              <section layout="row" layout-wrap layout-align="space-between start">
+                <div class="input-element" flex="35" flex-sm="100" flex-xs="100" layout>
+                  <p class="select-element-label"><label><strong>Tiendas</strong></label></p>
+                  <div class="scroll-column">
+                    <md-checkbox
+                      class="block-checkbox"
+                      ng-repeat="store in vm.stores track by $index"
+                      ng-click="vm.toggleStore(store.id)"
+                      ng-checked="vm.isStoreSelected(store.id)"
+                    >
+                      {{store.name}}
+                    </md-checkbox>
+                  </div>
+                </div>
+
+                <div class="input-element" flex="35" flex-sm="100" flex-xs="100" layout>
+                  <p class="select-element-label"><label><strong>Tienda principal</strong></label></p>
+                  <div class="scroll-column">
+                    <md-radio-group ng-model="vm.user.mainStore" layout layout-wrap>
+                      <md-radio-button
+                        class="block-checkbox"
+                        ng-repeat="store in vm.stores"
+                        ng-if="vm.isStoreSelected(store.id)"
+                        ng-value="store.id"
+                        flex="100"
+                      >
+                        {{store.name}}
+                      </md-radio-button>
+                    </md-radio-group>
+                  </div>
+                </div>
+              </section>
+
+              <section layout>
+                <div flex="65">
+                  <h2><strong>Modulos</strong></h2>
+                  <div layout="row" layout-wrap>
+
+                    <div flex="33">
+                      <p><label><strong>Usuarios</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'users'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Productos</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'products'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div flex="33">
+                      <p><label><strong>Marketing</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'marketing'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Configuración</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'config'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Oportunidades</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'leads'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Marcas</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'brands'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Categorias</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'categories'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Filtros</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'filters'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Agrupadores</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'groups'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Comisiones</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'commissions'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Metodos de pago</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'paymentmethods'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div flex="33">
+                      <p><label><strong>Cotizaciones</strong></label></p>
+                      <div class="scroll-column scroll-column-modules">
+                        <div class="block-checkbox" ng-repeat="module in vm.modules | filter:{section:'quotations'}">
+                          <md-checkbox  ng-model="module.isActive" aria-label="Checkbox 1">
+                            {{module.label}}
+                          </md-checkbox>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div flex="35">
+                  <div class="logs-widget">
+                    <h2><strong>Ultíma actividad</strong></h2>
+                    <md-content>
+                      <md-list flex>
+                        <md-list-item
+                          class="md-3-line"
+                          ng-repeat="notification in vm.notifications"
+                        >
+                          <div class="md-list-item-text" layout="column">
+                            <h4>{{notification.message}}</h4>
+                            <p>{{notification.createdAt}}</p>
+                          </div>
+                        </md-list-item>
+                      </md-list>
+                    </md-content>
+                  </div>
+                </div>
+              </section>
+
+              <p>
+                <a target="_blank" href="/auth/forgot-password">
+                  Haz click aqui para cambiar la contraseña
+                </a>
+              </p>
+
+              <div>
+                <md-button type="submit"
+                  class="md-raised md-accent action-button"
+                  aria-label="Guardar"
+                  ng-click="vm.sendForm(basicForm)"
+                >
+                    Guardar
+                </md-button>
+              </div>
+
+
+            </form>
+
+          </md-content>
+
+          <!--<div form-helper flex="80"></div>-->
+        </section>
+
+
+    </div>
+    <!-- / CONTENT -->
+  </div>
+
+</div>

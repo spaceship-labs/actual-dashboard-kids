@@ -1,0 +1,309 @@
+<section class="md-whiteframe-z1">
+  <md-toolbar class="demo-toolbar md-primary">
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+      <h3>EMPAQUE Y ENVIO</h3>
+      <md-button ng-click="vm.updatePackage(packageForm)" class="md-raised md-primary action-button">Guardar</md-button>
+    </div>
+  </md-toolbar>
+  <md-content class="md-padding">
+
+    <form name="packageForm" ng-submit="vm.updatePackage(packageForm)" class="md-inline-form" novalidate>
+
+      <!--
+      <section layout="row" layout-wrap layout-align="space-between start">
+
+        <div class="select-element-wrapper" flex="45" flex-xs="100" flex-sm="100">
+          <p class="select-element-label"><label><strong>Ensamble</strong></label></p>
+          <md-select class="select-element" placeholder="Ensamble" ng-model="vm.product.Ensemble">
+            <md-option ng-repeat="ensemble in vm.ensembles" value="{{ensemble.value}}">
+              {{ensemble.label}}
+            </md-option>
+          </md-select>
+        </div>
+
+        <div class="select-element-wrapper" flex="45" flex-xs="100" flex-sm="100">
+          <p class="select-element-label"><label><strong>Tiempo de ensamble</strong></label></p>
+          <md-input-container class="no-margin">
+            <md-select class="select-element" placeholder="Tiempo de ensamble" ng-model="vm.product.EnsembleTime">
+              <md-option ng-repeat="ensembleTime in vm.ensembleTimes" value="{{ensembleTime.value}}">
+                {{ensembleTime.label}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+
+      </section>
+      -->
+
+      <div class="wyswyg-block">
+        <label for=""><strong>Contenido del paquete</strong></label>
+        <textarea ui-tinymce="tinymceOptions" ng-model="vm.product.PackageContent"></textarea>
+      </div>
+
+
+      <section layout="row" layout-wrap layout-align="start start">
+
+        <div class="input-element number-element input-col"  flex-xs="100" flex-sm="100">
+          <label>Piezas comerciales</label>
+          <div class="input-element-inner">
+            <input type="number" ng-model="vm.product.CommercialPieces">
+          </div>
+        </div>
+
+        <div class="input-element number-element input-col"  flex-xs="100" flex-sm="100">
+          <label>Piezas de envío</label>
+          <div class="input-element-inner">
+            <input type="number" ng-model="vm.product.DeliveryPieces">
+          </div>
+        </div>
+
+      </section>
+
+      <!--PACKAGE SIZE-->
+      <div>
+        <h2><label><strong>Medidas y peso articulo</strong></label></h2>
+
+        <section layout="row" layout-wrap layout-align="space-between start">
+
+          <div flex flex-xs="100" flex-sm="100" layout="row" layout-wrap layout-align="start end">
+            <div class="input-element" flex >
+              <label>Longitud</label>
+              <div class="input-element-inner">
+                <input type="text" placeholder="Longitud" ng-model="vm.product.Length">
+              </div>
+            </div>
+            <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+              <md-input-container>
+                <md-select class="select-element" placeholder="Unidad de medida" ng-model="vm.product.LengthUnitMsr">
+                  <md-option ng-value="null">Ninguno</md-option>
+                  <md-option value="cm">cm</md-option>
+                  <md-option value="m">m</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div flex flex-xs="100" flex-sm="100" layout="row" layout-wrap layout-align="start end">
+            <div class="input-element" flex>
+              <label>Ancho</label>
+              <div class="input-element-inner">
+                <input type="text" placeholder="Ancho" ng-model="vm.product.Width">
+              </div>
+            </div>
+            <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+              <md-input-container>
+                <md-select class="select-element" placeholder="Unidad de medida" ng-model="vm.product.WidthUnitMsr">
+                  <md-option ng-value="null">Ninguno</md-option>
+                  <md-option value="cm">cm</md-option>
+                  <md-option value="m">m</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+        </section>
+
+        <section layout="row" layout-wrap layout-align="space-between start">
+
+          <div flex="50" flex-xs="100" flex-sm="100" layout="row" layout-wrap layout-align="start end">
+            <div class="input-element" flex >
+              <label>Altura</label>
+              <div class="input-element-inner">
+                <input type="text" placeholder="Altura" ng-model="vm.product.Height">
+              </div>
+            </div>
+            <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+              <md-input-container>
+                <md-select class="select-element" placeholder="Unidad de medida" ng-model="vm.product.HeightUnitMsr">
+                  <md-option ng-value="null">Ninguno</md-option>
+                  <md-option value="cm">cm</md-option>
+                  <md-option value="m">m</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+          <!--
+          <div flex flex-xs="100" flex-sm="100" layout="row" layout-wrap layout-align="start end">
+            <div class="input-element" flex >
+              <label>Volumen</label>
+              <div class="input-element-inner">
+                <input type="text" placeholder="Volumen" ng-model="vm.product.Volume">
+              </div>
+            </div>
+            <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+              <md-input-container>
+                <md-select class="select-element" placeholder="Unidad de medida" ng-model="vm.product.VolumeUnitMsr">
+                  <md-option value="cc">cc</md-option>
+                  <md-option value="mc">mc</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+          -->
+
+        </section>
+
+        <section layout="row" layout-wrap layout-align="space-between start">
+
+          <div flex="45" flex-xs="100" flex-sm="100" layout="row" layout-wrap layout-align="start end">
+            <div class="input-element" flex >
+              <label>Peso</label>
+              <div class="input-element-inner">
+                <input type="text" placeholder="Peso" ng-model="vm.product.Weight">
+              </div>
+            </div>
+            <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+              <md-input-container>
+                <md-select class="select-element" placeholder="Unidad de medida" ng-model="vm.product.WeightUnitMsr">
+                  <md-option ng-value="null">Ninguno</md-option>
+                  <md-option value="g">g</md-option>
+                  <md-option value="kg">kg</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+        </section>
+
+
+        <section layout="row" layout-wrap layout-align="space-between start">
+
+          <div flex flex-xs="100" flex-sm="100" layout="row" layout-wrap layout-align="start end">
+            <div class="input-element" flex >
+              <label>Altura asiento</label>
+              <div class="input-element-inner">
+                <input type="text" placeholder="Altura asiento" ng-model="vm.product.SeatHeight">
+              </div>
+            </div>
+            <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+              <md-input-container>
+                <md-select class="select-element" placeholder="Unidad de medida" ng-model="vm.product.SeatHeightUnitMsr">
+                  <md-option ng-value="null">Ninguno</md-option>
+                  <md-option value="cm">cm</md-option>
+                  <md-option value="m">m</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div flex flex-xs="100" flex-sm="100" layout="row" layout-wrap layout-align="start end">
+            <div class="input-element" flex >
+              <label>Altura respaldo</label>
+              <div class="input-element-inner">
+                <input type="text" placeholder="Altura respaldo" ng-model="vm.product.ChairBackHeight">
+              </div>
+            </div>
+            <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+              <md-input-container>
+                <md-select class="select-element" placeholder="Unidad de medida" ng-model="vm.product.ChairBackHeightUnitMsr">
+                  <md-option ng-value="null">Ninguno</md-option>
+                  <md-option value="cm">cm</md-option>
+                  <md-option value="m">m</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+        </section>
+
+        <section layout="row" layout-wrap layout-align="space-between start">
+
+          <div flex flex-xs="100" flex-sm="100" layout="row" layout-wrap layout-align="start end">
+            <div class="input-element" flex >
+              <label>Altura reposa brazos</label>
+              <div class="input-element-inner">
+                <input type="text" placeholder="Altura reposa brazos" ng-model="vm.product.ArmRestHeight">
+              </div>
+            </div>
+            <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+              <md-input-container>
+                <md-select class="select-element" placeholder="Unidad de medida" ng-model="vm.product.ArmRestHeightUnitMsr">
+                  <md-option ng-value="null">Ninguno</md-option>
+                  <md-option value="cm">cm</md-option>
+                  <md-option value="m">m</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div flex flex-xs="100" flex-sm="100" layout="row" layout-wrap layout-align="start end">
+            <div class="input-element" flex >
+              <label>Profundidad</label>
+              <div class="input-element-inner">
+                <input type="text" placeholder="Profundidad" ng-model="vm.product.Depth">
+              </div>
+            </div>
+            <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+              <md-input-container>
+                <md-select class="select-element" placeholder="Unidad de medida" ng-model="vm.product.DepthUnitMsr">
+                  <md-option ng-value="null">Ninguno</md-option>
+                  <md-option value="cm">cm</md-option>
+                  <md-option value="m">m</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+        </section>
+
+
+      </div>
+      <!--END PACKAGE SIZE-->
+
+      <!--SIZES-->
+      <div>
+        <h2>Medidas y peso pieza empaque</h2>
+        <p ng-if="vm.product.Sizes.length <= 0">No hay medidas agregadas a este producto</p>
+        <div ng-show="vm.isLoadingSizes" layout="row" layout-sm="column" layout-align="space-around">
+          <md-progress-circular class="md-accent" md-diameter="96" md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <ul ng-if="!vm.isLoadingSizes" class="draggable-list" dnd-list="vm.product.Sizes">
+          <li
+            ng-repeat="size in vm.product.Sizes"
+            class="noright"
+            layout="row"
+            layout-align="space-between center"
+            dnd-draggable="size"
+            dnd-moved="vm.product.Sizes.splice($index, 1)"
+            dnd-selected="vm.selectedSize = size"
+            ng-class="{'selected-item': vm.selectedSize === size}"
+            dnd-effect-allowed="move">
+            <p>Longitud : {{ size.Length }} {{ size.LengthUnit }} | Ancho: {{size.Width}} {{size.WidthUnit}} | Altura: {{size.Height}} {{size.HeightUnit}} | Volumen: {{size.Volume}} {{size.VolumeUnit}} | Peso: {{size.Weight}} {{size.WeightUnit}}</p>
+            <div class="md-secondary">
+              <md-button ng-click="vm.openSizeForm($event, 'edit', size)" class="md-raised md-primary">
+                Editar
+              </md-button>
+              <md-button ng-click="vm.removeSize($event,size.id, $index)" class="md-raised md-warn">
+                Eliminar
+              </md-button>
+            </div>
+          </li>
+        </ul>
+
+        <div>
+          <md-button ng-click="vm.openSizeForm($event, 'add')" class="md-raised md-primary">
+            Agregar tamaño
+          </md-button>
+        </div>
+      </div>
+      <!--END FILTER VALUES-->
+
+      <!--CHECKED-->
+      <div>
+        <h2><strong>Revisión</strong></h2>
+        <div>
+          <md-checkbox class="spaced-checkbox block-checkbox" ng-model="vm.product.CheckedPackage"> Empaque y envío revisado</md-checkbox>
+        </div>
+      </div>
+      <!--END CHECKED-->
+
+
+      <div layout="row" layout-align="end center">
+        <md-button ng-click="vm.updatePackage(packageForm)" class="md-raised md-primary action-button">Guardar</md-button>
+      </div>
+
+    </form>
+
+  </md-content>
+</section>

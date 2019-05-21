@@ -1,0 +1,147 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+    <div class="content">
+      <div class="page-layout simple fullwidth">
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="demo-toolbar md-primary">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+              <h3>CREAR COMISIÓN</h3>
+              <md-button type="submit"
+                class="md-raised md-accent action-button"
+                aria-label="Guardar"
+                ng-click="vm.sendForm(basicForm.$valid)"
+              >
+                  CREAR
+              </md-button>
+
+            </div>
+          </md-toolbar>
+          <md-content class="md-padding">
+            <div ng-show="vm.isLoading" layout="row" layout-sm="column" layout-align="space-around">
+              <md-progress-circular class="md-accent" md-diameter="96" md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <form name="basicForm" ng-show="!vm.isLoading"  class="md-inline-form" novalidate>
+              <section
+                layout="row"
+                layout-wrap
+                layout-align="space-between start"
+                ng-repeat="goal in vm.goals"
+                ng-class="{invalid: vm.repeatedEntry(goal, $index) || vm.wasCreatedEntry(goal)}"
+              >
+                <div class="input-element" flex="15" flex-xs="100">
+                  <p class="select-element-label"><label><strong>Tienda</strong></label></p>
+                  <md-input-container class="company-select">
+                    <md-select
+                      class="select-element select-element-md"
+                      name="_company"
+                      ng-model="goal.store"
+                      ng-change="vm.getSellers($index, goal.store)"
+                      required
+                    >
+                      <md-option ng-repeat="store in vm.stores" ng-value="store.id">
+                        {{store.name}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>
+
+                <div class="input-element"  flex="15" flex-xs="100">
+                  <p class="select-element-label"><label><strong>Vendedores en Tienda</strong></label></p>
+                  <div class="input-element-inner">
+                    <input
+                      type="number"
+                      name="_sellers"
+                      required
+                      ng-model="goal.sellers"
+                      ng-placeholder="Seleccione una tienda"
+                    >
+                  </div>
+                </div>
+
+                <div class="input-element"  flex="15" flex-xs="100">
+                  <label>Meta de la tienda</label>
+                  <div class="input-element-inner">
+                    <input
+                      type="text"
+                      name="_goal"
+                      format-as-currency
+                      required
+                      ng-model="goal.goal"
+                      ng-placeholder="Meta de la tienda"
+                    >
+                  </div>
+                </div>
+
+
+               <div class="input-element"  flex="15" flex-xs="100">
+                  <label>Fecha</label>
+                  <div class="input-element-inner">
+                    <input
+                      type="text"
+                      name="_date"
+                      pikaday
+                      format="MM - YYYY"
+                      on-select="vm.selectDate($index, pikaday)"
+                      placeholder="Fecha"
+                      required
+                      readonly
+                    >
+                  </div>
+                </div>
+                <div layout layout-align="end center" layout-wrap class="options" flex="100">
+                  <md-button
+                    class="md-icon-button"
+                    ng-click="vm.showCommission(goal)"
+                  >
+                    <md-icon
+                      class="button-watch"
+                      md-svg-src="assets/images/icons/watch.svg"
+                    >
+                    </md-icon>
+                  </md-button>
+
+                  <md-button
+                    class="md-icon-button"
+                    ng-click="vm.removeEntry($index)"
+                    ng-if="vm.goals.length > 1"
+                  >
+                    <md-icon
+                      class="button-remove"
+                      md-svg-src="assets/images/icons/remove.svg"
+                    >
+                    </md-icon>
+                  </md-button>
+
+                </div>
+              </section>
+              <div flex="100" layout layout-align="end center">
+                <md-button
+                  class="md-icon-button"
+                  ng-click="vm.addEntry()"
+                >
+                  <md-icon
+                    class="button-add"
+                    md-svg-src="assets/images/icons/add.svg"
+                  >
+                   </md-icon>
+                </md-button>
+              </div>
+
+              <div>
+                <md-button
+                  type="submit"
+                  class="md-raised md-accent action-button"
+                  aria-label="Guardar"
+                  ng-click="vm.sendForm(basicForm.$valid)"
+                >
+                    CREAR
+                </md-button>
+              </div>
+
+            </form>
+
+          </md-content>
+        </section>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,217 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+    <div class="content">
+
+
+      <div class="page-layout simple fullwidth">
+
+        <section class="md-whiteframe-z1">
+          <md-toolbar class="demo-toolbar md-primary">
+            <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+              <h3>EDITAR PROMOCIÓN</h3>
+
+              <md-button type="submit" class="md-raised md-accent action-button" aria-label="Guardar"
+                        ng-click="vm.update(updateForm)">
+                  Actualizar
+              </md-button>
+
+            </div>
+          </md-toolbar>
+          <md-content class="md-padding">
+
+
+            <div ng-show="vm.isLoading" layout="row" layout-sm="column" layout-align="space-around">
+              <md-progress-circular class="md-accent" md-diameter="96" md-mode="indeterminate"></md-progress-circular>
+            </div>
+
+            <form name="updateForm" ng-show="!vm.isLoading" ng-submit="vm.update(updateForm)" class="md-inline-form" novalidate>
+
+              <section layout="row" layout-align="space-between start" layout-wrap>
+
+                <div class="input-element" flex="45" flex-sm="100" flex-xs="100">
+                  <label>Nombre público*</label>
+                  <div class="input-element-inner">
+                    <input type="text" name="Nombre" ng-model="vm.promotion.publicName" required placeholder="Nombre*">
+                  </div>
+                </div>
+
+                <div class="input-element" flex="45" flex-sm="100" flex-xs="100">
+                  <label>Codigo*</label>
+                  <div class="input-element-inner">
+                    <input type="text" name="Código" ng-model="vm.promotion.code" required placeholder="Nombre*">
+                  </div>
+                </div>
+
+                <div class="input-element" flex="45" flex-sm="100" flex-xs="100">
+                  <label>Nombre interno*</label>
+                  <div class="input-element-inner">
+                    <input type="text" name="Nombre_interno" ng-model="vm.promotion.name" required placeholder="Nombre interno*">
+                  </div>
+                </div>
+
+                <div flex="45" flex-sm="100" flex-xs="100">
+                  <p class="select-element-label"><label><strong>Sociedad</strong></label></p>
+                  <md-input-container class="checkboxes-dropdown-wrap">
+                    <md-select class="select-element" ng-model="vm.promotion.sa">
+                      <md-option 
+                        ng-value="sa.value" 
+                        ng-repeat="sa in vm.sasPromos">
+                          {{sa.label}}
+                      </md-option>
+                    </md-select>
+                  </md-input-container>
+                </div>   
+
+                <div class="input-element" flex="25" flex-sm="100" flex-xs="100">
+                  <label>Fecha de inicio*</label>
+                  <div layout="row">
+                    <div flex="60" class="input-element-inner">
+                      <input ng-if="vm.promotion" type="text" pikaday="vm.myPickerStartDate" set-default-date="true" default-date="{{vm.promotion.startDate}}" on-select="vm.onSelectStartDate(pikaday)" readonly required>
+                    </div>
+                    <div flex="40" class="input-element-inner">
+                      <input type="text" ui-timepicker ui-timepicker="vm.timePickerOptions"  ng-model="vm.startTime" placeholder="Hora" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="input-element" flex="25" flex-sm="100" flex-xs="100">
+                  <label>Fecha de vencimiento*</label>
+                  <div layout="row">
+                    <div flex="60" class="input-element-inner">
+                      <input ng-if="vm.promotion" type="text" pikaday="vm.myPickerEndDate" set-default-date="true" default-date="{{vm.promotion.endDate}}" on-select="vm.onSelectEndDate(pikaday)" readonly required>
+                    </div>
+                    <div flex="40" class="input-element-inner">
+                      <input type="text" ui-timepicker ui-timepicker="vm.timePickerOptions"  ng-model="vm.endTime" placeholder="Hora" required>
+                    </div>
+                  </div>
+                </div>
+
+              </section>
+
+              <!--DISCOUNTS-->
+              <section layout="row" layout-align="space-between center">
+                <div ng-repeat="pg in vm.paymentGroups" class="input-element" flex="15" flex-sm="100" flex-xs="100">
+                  <label>{{pg.label}} %</label>
+                  <div class="input-element-inner">
+                    <input
+                      type="number"
+                      max="{{vm.paymentGroups[0].discount}}"
+                      name="{{pg.label}}"
+                      ng-model="pg.discount"
+                      required
+                      min="0"
+                      >
+                  </div>
+                </div>
+              </section>
+              <!--END DISCOUNTS-->
+
+              <!--DISCOUNTS TEXTS-->
+              <section layout="row" layout-align="space-between center">
+                <div ng-repeat="pg in vm.paymentGroups" class="input-element" flex="15" flex-sm="100" flex-xs="100">
+                  <label>Etiqueta - {{pg.label}}</label>
+                  <div class="input-element-inner">
+                    <input
+                      type="text"
+                      name="{{pg.label}}"
+                      ng-model="pg.text"
+                      required
+                      >
+                  </div>
+                </div>
+              </section>
+              <!--END DISCOUNTS TEXTS-->
+
+              <!--EWALLET BY GROUP-->
+              <section class="spaced-row" layout="row" layout-align="space-between center">
+                <div
+                  ng-repeat="pg in vm.paymentGroups track by $index"
+                  flex
+                  flex-xs="100"
+                  flex-sm="100"
+                >
+                  <label><strong>Monedero grupo de pago {{$index+1}}</strong></label>
+                  <div layout="row" layout-wrap layout-align="start end">
+                    <div class="input-element" flex="35" >
+                      <div class="input-element-inner">
+                        <input type="text" placeholder="Monedero" ng-model="pg.ewallet">
+                      </div>
+                    </div>
+                    <div class="select-element-wrapper select-element-wrapper-nomargin" flex>
+                      <md-input-container>
+                        <md-select class="select-element" placeholder="Tipo" ng-model="pg.ewalletType">
+                          <md-option value="ammount">Cantidad</md-option>
+                          <md-option value="percentage">Porcentaje</md-option>
+                        </md-select>
+                      </md-input-container>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!--END EWALLET BY GROUP-->
+
+              <!--LENTO MOVIMIENTO  AND PUSH MONEY-->
+              <section layout="row" layout-align="start center">
+
+                <!--
+                <div flex="25">
+                  <md-checkbox class="spaced-checkbox block-checkbox" ng-model="vm.promotion.hasPriority">
+                    Venta especial
+                  </md-checkbox>
+                </div>
+                -->
+
+
+                <div flex="25">
+                  <md-checkbox class="spaced-checkbox block-checkbox" ng-model="vm.promotion.hasLM">
+                    Lento movimiento
+                  </md-checkbox>
+                </div>
+              </section>
+              <!--END LENTO MOVIMIENTO  AND PUSH MONEY-->
+
+              <section class="promo-products" ng-if="vm.promotion.sa">
+                <h2>
+                  <a href="#" ng-click="vm.loadProducts()"><strong>Ver productos con esta promoción</strong></a>
+
+                  <strong ng-if="vm.products && !vm.isLoadingProducts"> | Productos con esta promocion
+                    <span>({{vm.products.length}})</span>:
+                  </strong>
+                
+                </h2>
+                <div ng-show="vm.isLoadingProducts" layout="row" layout-sm="column" layout-align="space-around">
+                  <md-progress-circular class="md-accent" md-diameter="96" md-mode="indeterminate"></md-progress-circular>
+                </div>
+
+                <div ng-show="!vm.isLoadingProducts" class="scroll-column">
+                  <ul>
+                    <li ng-repeat="product in vm.products | orderBy:'ItemCode' track by $index" >
+                      {{product.ItemCode}} | {{product.Discount}}% | {{product.ItemName}}
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <div>
+                <md-button
+                  type="submit"
+                  class="md-raised md-accent action-button"
+                  aria-label="Guardar"
+                >
+                    Actualizar
+                </md-button>
+              </div>
+
+            </form>
+
+          </md-content>
+
+          <!--<div form-helper flex="80"></div>-->
+        </section>
+
+
+    </div>
+    <!-- / CONTENT -->
+  </div>
+
+</div>

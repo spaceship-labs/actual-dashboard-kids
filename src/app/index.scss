@@ -1,0 +1,709 @@
+/**
+ *  Do not remove this comments bellow. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+
+/**
+ *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector
+.icon-link.gray{
+  color:gray!important;
+}
+.icon-link{
+ color: #039be5 !important;
+}
+.pointer-cursor{
+  cursor:pointer;
+}
+.comma-separated:after{
+  content:', ';
+}
+.comma-separated:last-child:after{
+  display: none;
+}
+
+.title-checkbox md-checkbox{
+  margin: 0;
+}
+.payment-group-item{
+  margin: 0px 0;
+  padding: 10px 0;
+}
+.payment-group-item + .payment-group-item{
+  border-top: 1px solid #000;
+}
+.payment-group-item ul{
+  margin: 5px 0 0;
+}
+.payment-group-item ul li{
+  font-size: 12px;
+}
+
+#new-search{
+  padding: 9px;
+  vertical-align: middle;
+  position: relative;
+  top: 1px;
+  color: #fff;
+  background: #039BE5;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+.dataTables_wrapper .dt-buttons{
+  padding: 0 24px;
+}
+.dataTables_wrapper .dt-buttons + .top{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.dataTables_wrapper .export-button{
+  margin-left: 10px;
+}
+
+.dataTables_wrapper .pagination .paginate_input{
+  display: inline;
+  width: auto!important;
+  max-width: 52px;
+  background: gray;
+  padding: 6px;
+  text-align: right;
+  background: #f6f6f6;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+div.dataTables_filter label{float: left;}
+.page-layout.simple.fullwidth > .header {
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
+    padding: 24px;
+}
+.price-tables .price-table{
+  width:250px;
+  margin:24px 18px 0 0;
+}
+
+.products-filter md-input-container .md-errors-spacer{display: none;}
+.products-filter md-input-container + md-input-container{margin-left: 4px;}
+.product-name a{color: #fff!important}
+
+.custom-pagination ul{
+  padding: 0;
+  float: right;}
+.clear{clear: both}
+.custom-pagination ul li{
+  display: inline-block;
+  margin: 0 4px;
+}
+.custom-pagination ul li a{
+  background: rgb(45,50,62);
+  color: #fff;
+  padding: 4px;
+  border-radius: 2px;
+}
+
+.custom-pagination li.active a {
+  background: rgb(3,155,229);
+}
+.file-manager-thumbs img{max-width: 102px;}
+.file-manager-btn{margin: 10px 0;}
+.file-manager-thumb{position:relative;cursor: pointer;display: inline-block;margin: 4px}
+.file-manager-thumb.selected:after{
+  content: '';
+  background: rgba(25,164,239,0.5);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+}
+.file-manager-thumb.deleting:after{
+  content: '';
+  background: rgba(244,67,54,0.5);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+}
+.row-info{margin:10px 0}
+
+.content md-tabs-content-wrapper{margin-top:20px;}
+.wyswyg-block{margin: 6px 0;}
+
+.spaced-checkbox{margin: 10px!important;}
+.block-checkbox{display: block;}
+
+.color-section{
+  margin: 20px 0;
+}
+
+.variant-filters-wrap{
+  margin-top: 40px;
+}
+.colorpicker-sp-wrapper{
+  /*margin: 0 20px;*/
+}
+
+.colorpicker-sp{
+  padding: 10px;
+  /*max-width: 200px;*/
+  max-width: 800px;
+  margin: 0px 0px;
+  min-width: 400px;
+}
+.colorpicker-sp-color-wrap{
+  padding: 4px;
+  line-height: 1;
+  position: relative;
+  cursor: pointer;
+}
+.colorpicker-sp-color-wrap.wrap-on .colorpicker-sp-color{
+  /*
+  border: 3px solid #fff;
+  outline: #039BE5;
+  outline-width: 2px;
+  outline-style: solid;
+  */
+  padding: 7px;
+  text-align: center;
+}
+
+.colorpicker-sp-color-wrap.wrap-on .colorpicker-sp-color:after{
+  content: '\2713';
+  color: #000;
+  font-size: 18px;
+}
+
+.colorpicker-sp-color-wrap.wrap-on .colorpicker-sp-color-black:after{
+  color: #fff;
+}
+
+.colorpicker-sp-color{
+  display: inline-block;
+  height: 30px;
+  width: 100%;
+  border: 1px solid #000;
+}
+.colorpicker-sp-checked{
+  display: none;
+  color: #fff!important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.colorpicker-sp-checked.checked-on{
+  display: block;
+}
+
+.editor-block{
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.54);
+  border-top: 1px solid rgba(0,0,0,0.54);
+  margin: 10px 0;
+}
+
+.editor-block + .editor-block{
+  border-top:0;
+}
+
+.editor-row{
+  margin: 10px 0;
+}
+
+/*-------------/
+  #FORM ELEMENTS
+/*------------*/
+.input-element{
+  max-width: 100%;
+  border-radius: 2px;
+  display: block;
+  margin: 6px 0;
+  position: relative;
+  overflow: visible;
+}
+.input-element > label{
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.select-element,
+.input-element .input-element-inner{
+  /*background: rgb(254,254,254);*/
+  background: #f6f6f6;
+  margin: 4px 0 0;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: visible;
+  height: 28px;
+  /*height: 36px;*/
+}
+
+.select-element md-select,
+.input-element .input-element-inner textarea,
+.input-element .input-element-inner input[type="text"],
+.input-element .input-element-inner input[type="password"],
+.input-element .input-element-inner input[type="email"],
+.input-element .input-element-inner input[type="number"]{
+  /*font-size: 14px;*/
+  font-size: 12px;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  padding: 0 15px;
+  /*
+  line-height: 36px;
+  height: 36px;
+  */
+  height: 28px;
+}
+
+.select-element md-select.ng-invalid.ng-tuched,
+.input-element .input-element-inner input[type="text"].ng-invalid.ng-tuched,
+.input-element .input-element-inner input[type="email"].ng-invalid.ng-tuched,
+.input-element .input-element-inner input[type="number"].ng-invalid.ng-tuched,
+.input-element .input-element-inner input[type="password"].ng-invalid.ng-tuched,
+.input-element .input-element-inner textarea.ng-invalid.ng-tuched{
+  border:1px solid red;
+}
+
+.select-element-md{
+  min-width: 280px;
+}
+.select-element-md2{
+  max-width: 280px;
+}
+
+.select-element-lg{
+  min-width: 360px;
+}
+
+wysiwyg-edit .tinyeditor .sizer{
+  height: 200px;
+}
+
+.input-element.textarea-element .input-element-inner,
+.input-element.textarea-element .input-element-inner textarea{
+  height: auto;
+}
+
+.input-element.textarea-element .input-element-inner textarea{padding-top: 10px}
+
+.input-element.number-element .input-element-inner{
+  max-width: 100px;
+}
+.input-element.number-element .input-element-inner input{
+  padding: 0 0 0 15px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.select-element{padding: 0 0 0 10px}
+.select-element.md-default-theme:not([disabled]):focus .md-select-value,
+.select-element:not([disabled]):focus .md-select-value{
+  border: 0;
+}
+.select-element-label{margin: 0}
+.select-element-label + md-input-container{margin-top:0;}
+.select-element-wrapper{margin: 6px 0;}
+
+.select-element-wrapper-nomargin{
+  margin: 0;
+}
+.select-element-wrapper-nomargin .select-element-label{
+  margin: 0;
+}
+.select-element-wrapper-nomargin md-input-container{margin: 4px 0;}
+.select-element .md-select-value{
+  height: 18px;
+  font-size: 12px;
+}
+.select-element .md-select-value .md-text{font-size: 12px;}
+.checkbox-element md-checkbox{
+  font-size: 12px;
+  margin: 0;
+}
+
+/*----------------/
+  #ERROR FIELDS & SAP HINTS
+/*---------------*/
+.input-element .ng-message,
+.input-element div[ng-message]{
+  color: #CE2329;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.select-element-wrapper .input-hint,
+.input-element .input-hint{
+  margin: 7px 0;
+  font-size: 12px;
+}
+
+/*---------------/
+  #GLOBAL DASHBOARD
+/*----------------*/
+.ms-navigation .ms-navigation-node:not(.group).has-children:not(.collapsed) > ul{
+  background: #fff;
+}
+.ms-navigation .ms-navigation-node:not(.group).has-children:not(.collapsed) > ul .ms-navigation-item .ms-navigation-button{
+  color: #000;
+}
+.ms-navigation .ms-navigation-node .ms-navigation-item > .ms-navigation-button.active{
+  background: #CE2329;
+  color: #fff!important;
+}
+
+.ms-navigation .ms-navigation-node .ms-navigation-item > .ms-navigation-button .arrow{
+  color: #CE2329;
+}
+#vertical-navigation .navigation-header{background: #fff;}
+#vertical-navigation .navigation-header .fold-toggle{color: #000;}
+#vertical-navigation .navigation-header .logo .logo-image{background: #000;}
+.page-layout.simple.fullwidth > .header{
+  background: none;
+  color: #000;
+  text-transform: uppercase;
+}
+#new-search{background: #000;}
+.action-button{
+  background: #34BA2C!important;
+  color: #fff!important;
+}
+.action-button md-icon{color: #fff}
+.action-button > a.download-btn{
+  color: #fff;
+}
+
+
+table.dataTable thead th{
+  text-transform: uppercase;
+  background-color: whitesmoke!important;
+}
+
+.filter-column{
+  /*padding: 0 10px;*/
+}
+.checkboxes-dropdown-wrap{
+  margin: 18px 0;
+}
+
+
+.scroll-column{
+  overflow: auto;
+  max-height: 200px;
+  padding: 0;
+}
+.scroll-column-lg{
+  max-height: 260px;
+}
+
+.scroll-column-xlg{
+  max-height: 400px;
+}
+
+.scroll-column md-checkbox{
+  font-weight: 400;
+  margin: 5px 0
+}
+
+.scroll-column-modules{
+  overflow: visible;
+  max-height: none;
+  margin: 10px 0;
+}
+
+/*
+wysiwyg-edit .tinyeditor .tinyeditor-header .tinyeditor-buttons-group .tinyeditor-control{background-image:url(images/icons.png);background-position-x:0}
+*/
+
+wysiwyg-edit .tinyeditor .tinyeditor-header .tinyeditor-buttons-group .tinyeditor-control{
+  background-image: url(http://psergus.github.io/ngWYSIWYG/images/icons.png);
+}
+
+table.dataTable thead .sorting_asc {
+  background: url("http://cdn.datatables.net/1.10.0/images/sort_asc.png") no-repeat center left;
+}
+table.dataTable thead .sorting_desc {
+  background: url("http://cdn.datatables.net/1.10.0/images/sort_desc.png") no-repeat center left;
+}
+table.dataTable thead .sorting {
+  background: url("http://cdn.datatables.net/1.10.0/images/sort_both.png") no-repeat center left;
+}
+
+table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc{
+  padding-left: 20px;
+}
+
+.form-dialog{
+  min-width: 420px;
+}
+
+.loading-wrapper{
+  min-width: 420px;
+}
+
+.editor-list{padding: 0;}
+.editor-list .editor-list-item{
+  border-bottom: 1px solid #000;
+}
+.editor-list .quick-edit{
+  background: #f6f6f6;
+  padding: 10px;
+}
+
+.draggable-list{
+  min-height: 50px;
+  padding: 0;
+  list-style: none;
+}
+.draggable-list li{
+  border: 2px solid #000;
+  padding: 10px;
+}
+.draggable-list li + li{
+  /*border-top: 0;*/
+}
+
+.draggable-list .dndDragging,
+.draggable-list .selected,
+.draggable-list .selected-item{
+  background: #f6f6f6;
+  border: 2px solid #34BA2C;
+}
+
+
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+.draggable-list .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+.draggable-list .dndPlaceholder {
+    display: block;
+    background-color: #ddd;
+    min-height: 96px;
+}
+
+.draggable-list-row li{
+  min-width: 20%;
+  text-align: center;
+}
+
+.submodules-list{padding-left: 20px;}
+.dtp-content{padding: 0}
+
+.page-layout.simple.fullwidth > .header{
+  padding-bottom: 0;
+  min-height: 0;
+  height: auto;
+}
+
+.no-margin{margin: 0;}
+
+.checkboxes-dropdown-wrap{
+  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+}
+.checkboxes-dropdown md-select-value .md-container{
+  display: inline-block;
+}
+
+.dataTable .icon-pencil{
+  color:rgb(3,155,229)!important;
+}
+
+.editor-column{
+  margin: 10px 0;
+}
+.editor-column h2{
+  margin: 0 0 10px;
+}
+
+.related-list a:not(:last-child):after{
+  content: ',';
+}
+
+
+#content form h2{font-size: 14px;}
+#content form p{
+  font-size: 12px;
+  margin: 6px 0;
+}
+#content form .block-checkbox{
+  font-size: 12px;
+}
+#content form label{font-size: 12px;}
+md-option{
+  height: 28px;
+}
+md-option .md-text{font-size: 12px;}
+
+.input-col + .input-col{
+  margin: 6px 14px;
+}
+
+/*TINYMCE CHARACTER COUNTER*/
+/* Optional: Adjust the positioning of the character count text. */
+.mce-label,
+.mce-charactercount,
+label.mce-charactercount {
+  margin: 2px 0 2px 2px;
+  padding: 8px;
+}
+
+/* Optional: Remove the html path code from the status bar. */
+.mce-path {
+    display: none !important;
+}
+
+.container-block{
+  padding: 4px 20px;
+  margin: 0 auto;
+}
+
+.no-paddingtop{padding-top: 0;}
+
+
+.logs-widget{
+  border: 2px solid black;
+}
+.logs-widget h2{
+  padding: 10px;
+  color: #fff;
+  background: #000;
+  margin: 0;
+}
+.logs-widget md-content{
+  padding: 10px;
+  overflow: auto;
+  max-height: 200px;
+}
+
+.logs-widget md-list-item{
+  border-bottom: 1px solid #929191;
+  min-height: 0!important;
+}
+.logs-widget md-list-item:last-child{border-bottom: 0;}
+.logs-widget .md-list-item-text{margin:4px 0!important;}
+
+.promo-products{
+  border: 1px solid #000;
+  margin: 10px 0;
+  padding: 20px;
+}
+
+.mkt-search-title{
+  font-size: 20px;
+}
+.spaced-row{margin: 6px 0}
+.bottom-checkbox{
+  padding-left: 25px;
+}
+
+.products-package .product-item md-select{margin: 0}
+.products-package .table-header-item{font-weight: 700}
+
+.products-package .table-body-item{padding: 10px}
+
+.products-package .table-header-item{padding: 10px 11px;}
+
+.products-package .select-element-wrapper-nomargin md-input-container{
+  margin: 0;
+}
+.products-package .table-header-item,
+.products-package .table-body-item{
+  font-size: 12px;
+}
+.products-package .table-header-item:first-child,
+.products-package .table-body-item:first-child{
+  padding-left: 0
+}
+.products-package .table-header-item,
+.products-package .table-body-item{text-align: right;}
+.products-package-total-price{
+  text-align: right;
+  font-size: 24px;
+}
+.products-package-total-price p{
+  font-size: 18px!important;
+}
+.products-package-total-price p a{
+  font-size:12px;
+}
+.products-package-method-price{
+  margin: 8px 0;
+  padding: 4px 0;
+  border-bottom: 2px solid #000;
+}
+.products-package-method-price:first-child{
+  border-top: 2px solid #000;
+}
+
+.mkt-view .md-chips{
+  box-shadow: 0 1px rgb(0,0,0)!important;
+  font-size: 12px;
+}
+.mkt-view md-chip{font-size: 12px;}
+
+
+.site-settings{
+  border-bottom: 1px solid #000;
+  padding: 10px 0;
+}
+.site-settings:last-child{
+  border-bottom: 0;
+}
+
+.site-settings .action-btn{
+  margin-left: 0;
+}
+
+.feature-image-container{
+  border-bottom: 2px solid #000;
+}
+
+.marginless-button{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.spotlight-itemcodes{margin: 20px 0}
+.spotlight-itemcodes-list{
+  overflow: auto;
+  max-height: 300px;
+}
+.spotlight-save-btn{margin-top: 20px}
+
+.zipcodestates-table{
+  width: 100%;
+}
+.zipcodestates-table td{padding: 0px 12px 0 0}
+.zipcodestates-table td .input-element{margin: 0}
+.to-upper{text-transform: uppercase;}
+.zipcodestates-table .top-zone-row{background: lightgrey}

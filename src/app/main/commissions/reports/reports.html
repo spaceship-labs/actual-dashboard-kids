@@ -1,0 +1,124 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="space-between">
+        <div layout="column" layout-align="center start">
+            <div class="breadcrumb" layout="row" layout-align="start center">
+                <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+                <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+                <span class="parent">Tables</span>
+            </div>
+            <div class="title">Comisiones</div>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+      <div class="white-bg md-whiteframe-4dp">
+        <div layout layout-padding>
+          <md-input-container class="no-margin">
+            <md-select
+              class="select-element"
+              placeholder="Año"
+              ng-model="year"
+              ng-change = "vm.setFilterDate(year, month, period)"
+            >
+              <md-option
+                ng-repeat="year in vm.years"
+                value="{{year}}"
+              >
+                {{year}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="no-margin">
+            <md-select
+              class="select-element"
+              placeholder="Mes"
+              ng-model="month"
+              ng-change = "vm.setFilterDate(year, month, period)"
+            >
+              <md-option ng-repeat="month in vm.months" value="{{month[0]}}">
+                {{month[1]}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="no-margin">
+            <md-select
+              class="select-element"
+              placeholder="Periodo"
+              ng-model="period"
+              ng-change = "vm.setFilterDate(year, month, period)"
+            >
+              <md-option
+                ng-repeat="option in [[1, 'primera mitad'], [2, 'segunda mitad']]"
+                value="{{option[0]}}"
+              >
+                {{option[1]}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="no-margin">
+            <md-select
+              class="select-element"
+              placeholder="Todas las tiendas"
+              ng-model="vm.filters.store"
+              ng-change="vm.filters.user = undefined; vm.filters.store = vm.filters.store == -1 ? undefined : vm.filters.store"
+            >
+              <md-option value = -1>
+                Todas las tiendas
+              </md-option>
+              <md-option ng-repeat="option in vm.stores" value="{{option.id}}">
+                {{option.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="no-margin">
+            <md-select
+              class="select-element"
+              placeholder="Todos los usuarios"
+              ng-model="vm.filters.user"
+              ng-change="vm.filters.user = vm.filters.user == -1 ? undefined : vm.filters.user"
+            >
+              <md-option value = -1>
+                Todos los usuarios
+              </md-option>
+              <md-option ng-repeat="option in vm.users" value="{{option.id}}">
+                {{option.firstName + ' ' + option.lastName + ' - ' + option.role}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+          <span flex></span>
+          <div>
+            <md-button class="md-raised md-primary" ng-click="vm.runReport()">
+              Iniciar reporte
+            </md-button>
+            <md-button
+              class="md-raised md-primary"
+              ng-csv="vm.downloadExcel()"
+              csv-header="['Folio', 'Tienda', 'Usuario', 'Rol', 'Fecha de cobro', 'Monto de cobro', 'Monto de cobro sin IVA', 'Comisión', 'Monto de comisión']"
+              filename="{{vm.csvtitle}}"
+            >
+              Excel
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="vm.downloadPDF()">
+              PDF
+            </md-button>
+          </div>
+        </div>
+
+        <div
+          table-list
+          filters="vm.filters"
+          columns="vm.columns"
+          api-resource="vm.apiResource"
+        >
+        </div>
+      </div>
+    </div>
+    <!-- / CONTENT -->
+</div>
