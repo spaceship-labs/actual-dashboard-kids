@@ -1,7 +1,7 @@
 (function() {
-  "use strict";
+  'use strict';
 
-  angular.module("fuse").factory("api", apiService);
+  angular.module('fuse').factory('api', apiService);
 
   /** @ngInject */
   function apiService($resource, $http, ENV) {
@@ -16,12 +16,12 @@
     };
 
     api.$http.post = function(url, data) {
-      var req = { method: "post", url: url, data: data };
+      var req = { method: 'post', url: url, data: data };
       return api.$http(req);
     };
 
     api.$http.get = function(url, data) {
-      var req = { method: "get", url: url, data: data };
+      var req = { method: 'get', url: url, data: data };
       return api.$http(req);
     };
 
@@ -30,10 +30,10 @@
       req.data = req.data || {};
       //req.data.apiKey = "#{APIKEY}";
       //req.data.hash = hash(req.data, $crypthmac);
-      if (req.method === "get") {
-        req.url += "?";
+      if (req.method === 'get') {
+        req.url += '?';
         Object.keys(req.data).forEach(function(k) {
-          req.url += "&" + k + "=" + req.data[k];
+          req.url += '&' + k + '=' + req.data[k];
         });
       }
       return req;
