@@ -11,7 +11,7 @@ angular
     tokenPrefix: 'sandbox',
   })
   .constant('staging', {
-    baseUrl: 'http://sandboxapikids.miactual.com/',
+    baseUrl: 'http://sandboxapikids.miactual.com',
     cdnUrl: 'https://d116li125og699.cloudfront.net',
     tokenPrefix: 'staging',
   })
