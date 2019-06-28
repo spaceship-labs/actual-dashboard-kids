@@ -9,13 +9,18 @@
     "cdnUrl": "https://d116li125og699.cloudfront.net",
     "tokenPrefix": "sandbox"
   },
+  "staging": {
+    "baseUrl": "http://sandboxapikids.miactual.com",
+    "cdnUrl": "https://d116li125og699.cloudfront.net",
+    "tokenPrefix": "staging"
+  },
   "demo": {
     "baseUrl": "http://demo-actual-api.herokuapp.com",
     "cdnUrl": "https://d116li125og699.cloudfront.net",
     "tokenPrefix": "demo"
   },
   "production": {
-    "baseUrl": "http://api.miactual.com",
+    "baseUrl": "http://apikids.miactual.com",
     "cdnUrl": "https://d116li125og699.cloudfront.net",
     "tokenPrefix": "production"
   }
