@@ -21,7 +21,7 @@ angular
     tokenPrefix: 'demo',
   })
   .constant('production', {
-    baseUrl: 'http://api.miactual.com',
+    baseUrl: 'http://apikids.miactual.com',
     cdnUrl: 'https://d116li125og699.cloudfront.net',
     tokenPrefix: 'production',
   })
